@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 
 ## Generate some random data of two clases
 mean = [0, 0]
-covariance = [[10,0], [0,10]]
+covariance = [[10,1], [1,10]]
 n_samples = 1000
 features = np.random.multivariate_normal(mean, covariance, n_samples)
 classes = np.random.choice([-1, 1], size=n_samples)
@@ -34,7 +34,6 @@ def perceptron(features: np.ndarray, classes: np.ndarray, iterations=100):
             if a_t != y_t:
                 w_t += y_t * x_t
                 n_errors += 1
-            
         print("error rate: ", n_errors / n_data)
     return w_t, labels
 
